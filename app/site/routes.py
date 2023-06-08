@@ -2,7 +2,6 @@ from flask import Blueprint, request, jsonify, render_template, redirect, flash,
 from flask_login import current_user, login_required
 from helpers import token_required
 from models import db, User, Book, book_schema, books_schema
-import requests 
 
 site = Blueprint('site', __name__, template_folder='site_templates')
 
