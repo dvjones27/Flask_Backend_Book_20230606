@@ -57,12 +57,12 @@ class User(db.Model, UserMixin):
 
 class Book(db.Model):
     isbn = db.Column(db.String(15), primary_key=True)
-    title = db.Column(db.String(150), nullable=False)
-    author = db.Column(db.String(150), nullable=False)
-    length = db.Column(db.Integer())
+    title = db.Column(db.String(150), unique = False, nullable=False)
+    author = db.Column(db.String(150), unique = False,  nullable=False)
+    length = db.Column(db.Integer, unique = False, nullable=False)
     cover = db.Column(db.String(150))
     copyright = db.Column(db.DateTime(timezone=False))
-    description = db.Column(db.String(4500))
+    description = db.Column(db.String(5000))
     user_token = db.Column(db.String, db.ForeignKey('user.token'), nullable=False)
     date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
     
